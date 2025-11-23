@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Create_main_window {
+public class Create_main_window1 {
 
     // Note: no private methods or attributes in this class
     // Other classes MAY change element features using an instance created
@@ -99,4 +99,116 @@ public class Create_main_window {
     String budget_result_cover = "EUR" + " 0.00";
     JLabel budgetresultcover_JLabel = new JLabel("Κάλυψη με Ταμειακά Διαθέσιμα:");
     JLabel showbudgetresultcover_JLabel = new JLabel(budget_result_cover);
+    public void configure_window(int window_width, int window_height) {
+
+        // print test data
+        System.out.println("IN BUILD MAIN WINDOW METHOD");
+        System.out.println(Get_data_from_file.data_file_records);
+
+        // configure the main "Budget Origin" WINDOW as frame
+        main_window.setSize(window_width, window_height);
+        main_window.getContentPane().setBackground(Color.blue);
+        main_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        main_window.setVisible(true);
+        main_window.setResizable(false);
+        //main_window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        // configure the four PANELS
+        year_JPanel.setBackground(Color.gray);
+        income_JPanel.setBackground(Color.green);
+        Double income_jpanel_width_Double = window_width * 0.98;
+        int income_jpanel_width = income_jpanel_width_Double.intValue();
+        income_JPanel.setPreferredSize(new Dimension(income_jpanel_width/2, window_height));
+        income_JPanel.setLayout(new GridLayout(12, 2, 5, 5));
+        income_JPanel.setBorder(income_Border);
+        expenses_JPanel.setBackground(Color.pink);
+        expenses_JPanel.setPreferredSize(new Dimension(window_width/2, window_height));
+        expenses_JPanel.setLayout(new GridLayout(16,2, 5, 5));
+        expenses_JPanel.setBorder(expenses_Border);
+        results_JPanel.setBackground(Color.orange);
+        results_JPanel.setLayout(new GridLayout(2, 2, 2, 2));
+
+        // place panels into main window
+        main_window.add(BorderLayout.NORTH, year_JPanel);
+        main_window.add(BorderLayout.WEST, income_JPanel);
+        main_window.add(BorderLayout.EAST, expenses_JPanel);
+        main_window.add(BorderLayout.SOUTH, results_JPanel);
+
+        // place components into year (top) panel
+        year_JPanel.add(comparison_JLabel);
+        year_JPanel.add(countryselect_JComboBox);
+        year_JPanel.add(datasave_JButton);
+        year_JPanel.add(year_JLabel);
+        year_JPanel.add(yearselect_JComboBox);
+        year_JPanel.add(yearadd_JButton);
+        year_JPanel.add(yearadd_JTextField);
+
+        // place components into income (left) panel
+        income_JPanel.add(income1_JLabel);
+        income_JPanel.add(showincome1_JLabel);
+        income_JPanel.add(taxes11_JButton);
+        income_JPanel.add(taxes11_JSpinner);
+        income_JPanel.add(socialcontributions12_JButton);
+        income_JPanel.add(socialcontributions12_JSpinner);
+        income_JPanel.add(transfers13_JButton);
+        income_JPanel.add(transfers13_JSpinner);
+        income_JPanel.add(gssaless14_JButton);
+        income_JPanel.add(gssaless14_JSpinner);
+        income_JPanel.add(othercurrentincome15_JButton);
+        income_JPanel.add(othercurrentincome15_JSpinner);
+        income_JPanel.add(incomefixedassets31_JButton);
+        income_JPanel.add(incomefixedassets31_JSpinner);
+        income_JPanel.add(debtsecurities43_JButton);
+        income_JPanel.add(debtsecurities43_JSpinner);
+        income_JPanel.add(incomeequityandinvestments45_JButton);
+        income_JPanel.add(incomeequityandinvestments45_JSpinner);
+        income_JPanel.add(currencydepositliabilities52_JButton);
+        income_JPanel.add(currencydepositliabilities52_JSpinner);
+        income_JPanel.add(incomedebtsecuritiesliabilities53_JButton);
+        income_JPanel.add(incomedebtsecuritiesliabilities53_JSpinner);
+        income_JPanel.add(incomeloans54_JButton);
+        income_JPanel.add(incomeloans54_JSpinner);
+
+        // place components into expenses (right) panel
+        expenses_JPanel.add(expenses2_JLabel);
+        expenses_JPanel.add(showexpenses2_JLabel);
+        expenses_JPanel.add(employeebenefits21_JButton);
+        expenses_JPanel.add(emploeebenefits21_JSpinner);
+        expenses_JPanel.add(socialbenefits22_JButton);
+        expenses_JPanel.add(socialbenefits22_JSpinner);
+        expenses_JPanel.add(transfers23_JButton);
+        expenses_JPanel.add(transfers23_JSpinner);
+        expenses_JPanel.add(gspurchases24_JButton);
+        expenses_JPanel.add(gspurchases24_JSpinner);
+        expenses_JPanel.add(subsidies25_JButton);
+        expenses_JPanel.add(subsidies25_JSpinner);
+        expenses_JPanel.add(interest26_JButton);
+        expenses_JPanel.add(interest26_JSpinner);
+        expenses_JPanel.add(otherexpenses27_JButton);
+        expenses_JPanel.add(otherexpenses27_JSpinner);
+        expenses_JPanel.add(appropriationsunderallocation29_JButton);
+        expenses_JPanel.add(appropriationsunderallocation29_JSpinner);
+        expenses_JPanel.add(expensesfixedassets31_JButton);
+        expenses_JPanel.add(expensesfixedassets31_JSpinner);
+        expenses_JPanel.add(valuables33_JButton);
+        expenses_JPanel.add(valuables33_JSpinner);
+        expenses_JPanel.add(expensesloans44_JButton);
+        expenses_JPanel.add(expensesloans44_JSpinner);
+        expenses_JPanel.add(expensesequityandinvestments45_JButton);
+        expenses_JPanel.add(expensesequityandinvestments45_JSpinner);
+        expenses_JPanel.add(expensesdebtsecuritiesliabilities53_JButton);
+        expenses_JPanel.add(expensesdebtsecuritiesliabilities53_JSpinner);
+        expenses_JPanel.add(expensesloans54_JButton);
+        expenses_JPanel.add(expensesloans54_JSpinner);
+        expenses_JPanel.add(financiaderivativesl57_JButton);
+        expenses_JPanel.add(financialderivatives57_JSpinner);
+
+        // place components into results (bottom) panel
+        results_JPanel.add(budgetresult_JLabel);
+        results_JPanel.add(showrbudgetesult_JLabel);
+        results_JPanel.add(budgetresultcover_JLabel);
+        results_JPanel.add(showbudgetresultcover_JLabel);
+
+    }
+}
 
