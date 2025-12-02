@@ -10,7 +10,7 @@ public class CSVLoader {
 
     public void load(String filename) throws IOException {
 
-        Map<Integer, List<OrganicEntry>> tempYearMap = new HashMap<>();
+        Map<Integer, List<OrganicEntries>> tempYearMap = new HashMap<>();
 
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line;
@@ -28,7 +28,7 @@ public class CSVLoader {
             double pde = Double.parseDouble(parts[4].trim());
             double total = Double.parseDouble(parts[5].trim());
 
-            OrganicEntry entry = new OrganicEntry(code, name, tp, pde, total);
+            OrganicEntries entry = new OrganicEntries(code, name, tp, pde, total);
 
             tempYearMap.putIfAbsent(year, new ArrayList<>());
             tempYearMap.get(year).add(entry);
