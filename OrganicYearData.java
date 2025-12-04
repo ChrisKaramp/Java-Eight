@@ -12,7 +12,7 @@ public class OrganicYearData {
         return year;
     }
 
-    public List <OrganicEntries> getENtries() {
+    public List <OrganicEntries> getEntries() {
         return entries;
 
     }
