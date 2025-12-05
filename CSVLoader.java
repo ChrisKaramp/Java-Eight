@@ -14,9 +14,8 @@ public class CSVLoader {
 
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line;
-
-        // Προσπέραση header αν υπάρχει
-        //line = reader.readLine();
+        
+        line = reader.readLine();
 
         while ((line = reader.readLine()) != null) {
             String[] parts = line.split(",");

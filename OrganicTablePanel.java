@@ -5,6 +5,7 @@ import java.util.Locale;
 import javax.swing.*;
 import java.awt.Font;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 public class OrganicTablePanel {
      Locale greek = new Locale("el", "GR");
