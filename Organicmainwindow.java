@@ -8,7 +8,10 @@ public class Organicmainwindow {
             OrganicYearData data = loader.getYearData(2024); // Βάλε όποιο έτος θες
             obj.outline();
             obj.sectors();
-            obj.buttons(data.getENtries());
+            obj.mbuttons(data.getEntries());
+            obj.tbuttons(data.getEntries());
+            obj.ebuttons(data.getEntries());
+            obj.sbuttons(data.getEntries());
             obj.show();
 
 
