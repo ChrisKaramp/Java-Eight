@@ -5,7 +5,7 @@ public class Organicmainwindow {
             CSVLoader loader = new CSVLoader();
             loader.load("/Users/macuser/Documents/ΔΕΤ/Statebudget/Java-Eight/organic_data.csv");
             OrganicTablePanel obj = new OrganicTablePanel();
-            OrganicYearData data = loader.getYearData(2022); // Βάλε όποιο έτος θες
+            OrganicYearData data = loader.getYearData(2023); // Βάλε όποιο έτος θες
             obj.outline();
             obj.sectors();
             obj.mbuttons(data.getEntries());
