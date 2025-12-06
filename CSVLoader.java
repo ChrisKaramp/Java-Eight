@@ -16,7 +16,7 @@ public class CSVLoader {
         String line;
 
         // Προσπέραση header αν υπάρχει
-        //line = reader.readLine();
+        line = reader.readLine();
 
         while ((line = reader.readLine()) != null) {
             String[] parts = line.split(",");
