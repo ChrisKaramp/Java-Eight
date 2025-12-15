@@ -1,19 +1,23 @@
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 public class Add_record_to_file {
     
-    public static void append_record(String datafilepath, String datarecord) throws IOException {
+    public static void write_record(String dataFilePath, String dataRecord, boolean appendORWriteFlag) throws IOException {
 
-        try ( FileWriter record_FileWriter = new FileWriter(datafilepath, true); ) {
-            record_FileWriter.append(datarecord + "\n");
-            record_FileWriter.close();
-            System.out.println("appended:" + datarecord);
+        try ( FileWriter recordFileWriter = new FileWriter(dataFilePath, appendORWriteFlag); ) {
+            recordFileWriter.append(dataRecord + "\n");
+            recordFileWriter.close();
+            //System.out.println("appended:" + dataRecord);
         } catch (FileNotFoundException e) {
             throw e;
         } catch (IOException e) {
-        System.out.println("Could not write to file. Check if it really exists.");
+        // something went wrong, notify user
+        System.out.println("Could not write to file." + dataFilePath + "Check if it really exists.");
+        JOptionPane.showMessageDialog
+            (null, "Could not write to file." + dataFilePath + "Check if it really exists.");
         }
     }
 }
