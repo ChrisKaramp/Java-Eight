@@ -34,7 +34,7 @@ public class Button_handler implements ActionListener {
                         = new Budget_distribution_window_model
                         (Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, getDataFilePath(), getSomePanel());
                     budgetDistributionWindow.setTitle
-                        ("Κατανομή Κρατικού Προϋπολογισμού");
+                        ("Κατανομή Κρατικού Προϋπολογισμού (Ctrl 1/2/3 --> reset)");
                 }
                 default -> JOptionPane.showMessageDialog
                         (null, getButtonType());

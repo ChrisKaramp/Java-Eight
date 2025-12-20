@@ -30,7 +30,7 @@ public class Copy_from_jar_to_data_folder {
         }
 
         String jarPathStr = location.getAbsolutePath();
-        System.out.println("location: " + jarPathStr);
+        //System.out.println("location: " + jarPathStr);
 
         // define if run from VSC or jar file
         File baseDir;
@@ -40,11 +40,11 @@ public class Copy_from_jar_to_data_folder {
             baseDir = new File(System.getProperty("user.dir"));
         }
 
-        System.out.println("base dir: " + baseDir.getAbsolutePath());
+        //System.out.println("base dir: " + baseDir.getAbsolutePath());
 
         // define data directory
         File dataDir = new File(baseDir, dataFolderName);
-        System.out.println("data dir: " + dataDir.getAbsolutePath());
+        //System.out.println("data dir: " + dataDir.getAbsolutePath());
 
         // try to create data directory if does not exist
         if (!dataDir.exists()) {
@@ -61,10 +61,10 @@ public class Copy_from_jar_to_data_folder {
                     "Data folder " + dataDir + " created.");
             }
         } else {
-            System.out.println("Data folder " + dataFolderName + "already exists.");
+            System.out.println("Data folder\n" + dataDir + "\nalready exists.");
             JOptionPane.showMessageDialog
                 (null,
-                "Data folder " + dataDir + " already exists.");
+                "Data folder\n" + dataDir + "\nalready exists.");
         }
 
         // copy CSVs - NOT overwrite

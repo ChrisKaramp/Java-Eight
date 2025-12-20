@@ -63,8 +63,12 @@ public class Budget_distribution_window_model extends JFrame {
         // place three nested panels into middle panel
         middlePanelArea.setLayout(new BorderLayout());
         middlePanelArea.add(BorderLayout.NORTH, nestedPanel1Area);
+        nestedPanel1Area.initShortcut(nestedPanel1Area, "ResetN1", KeyStroke.getKeyStroke("control 1"));
         middlePanelArea.add(BorderLayout.CENTER, nestedPanel2Area);
+        nestedPanel2Area.initShortcut(nestedPanel2Area, "ResetN2", KeyStroke.getKeyStroke("control 2"));
         middlePanelArea.add(BorderLayout.SOUTH, nestedPanel3Area);
+        nestedPanel3Area.initShortcut(nestedPanel3Area, "ResetN3", KeyStroke.getKeyStroke("control 3"));
+
 
         //// fill budget distibution window with selected year values
         // nested panel 1

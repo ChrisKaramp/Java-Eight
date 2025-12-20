@@ -2,6 +2,7 @@ import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class Panel_using_array extends JPanel {
 
@@ -68,6 +69,7 @@ public class Panel_using_array extends JPanel {
                 this.add(listeningSpinnersToBeCreated[k]);
             }
         }
+
     }
 
     public Listening_spinner[] getListeningSpinnersToBeCreated() {
@@ -80,5 +82,22 @@ public class Panel_using_array extends JPanel {
 
     public int getPanelGridColumns() {
         return panelGridColumns;
+    }
+
+    public void initShortcut(Panel_using_array thisPanel, String actionName, KeyStroke definedKeyStroke) {
+        JRootPane root = SwingUtilities.getRootPane(thisPanel);
+        if (root != null) {
+            root.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+                    .put(definedKeyStroke, actionName);
+            root.getActionMap().put(actionName, new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    //System.out.println(definedKeyStroke + " PRESSED");
+                    for (Listening_spinner currentListeninSpinner : listeningSpinnersToBeCreated){
+                        currentListeninSpinner.setValue(0);
+                    }
+                }
+            });
+        }
     }
 }

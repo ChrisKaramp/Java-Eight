@@ -30,6 +30,6 @@ public class Pfad {
 
         // create budget origin window, dimensions same as screen, defined in Constants class
         Budget_origin_window_model budgetOriginWindow = new Budget_origin_window_model(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, Constants.DATA_FILE_PATH);
-        budgetOriginWindow.setTitle("Προέλευση Κρατικού Προϋπολογισμού");
+        budgetOriginWindow.setTitle("Προέλευση Κρατικού Προϋπολογισμού (Ctrl L/R --> reset)");
     }
 }

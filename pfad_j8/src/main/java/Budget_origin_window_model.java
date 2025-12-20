@@ -66,15 +66,25 @@ public class Budget_origin_window_model extends JFrame {
         // place panels into main window
         this.add(BorderLayout.NORTH, topPanelArea);
         this.add(BorderLayout.WEST, leftPanelArea);
+        leftPanelArea.initShortcut(leftPanelArea, "ResetL", KeyStroke.getKeyStroke("control L"));
         this.add(BorderLayout.EAST, rightPanelArea);
+        rightPanelArea.initShortcut(rightPanelArea, "ResetR", KeyStroke.getKeyStroke("control R"));
         this.add(BorderLayout.SOUTH, bottomPanelArea);
 
         //// fill budget origin window with selected year values
         // fill left panel
         Widget_filler.Get_selected_year_values
-            (dataFilePath, topPanelArea.getYearSelectLCB().getSelectedItem().toString(), leftPanelArea, Constants.BO_LEFT_PANEL_START+1, Constants.BO_RIGHT_PANEL_START);
+            (dataFilePath,
+            topPanelArea.getYearSelectLCB().getSelectedItem().toString(),
+            leftPanelArea,
+            Constants.BO_LEFT_PANEL_START+1,
+            Constants.BO_RIGHT_PANEL_START);
         // fill right panel
         Widget_filler.Get_selected_year_values
-            (dataFilePath, topPanelArea.getYearSelectLCB().getSelectedItem().toString(), rightPanelArea, Constants.BO_RIGHT_PANEL_START+1, Constants.BO_BOTTOM_PANEL_START);
+            (dataFilePath,
+                topPanelArea.getYearSelectLCB().getSelectedItem().toString(),
+                rightPanelArea,
+                Constants.BO_RIGHT_PANEL_START+1,
+                Constants.BO_BOTTOM_PANEL_START);
     }
 }
