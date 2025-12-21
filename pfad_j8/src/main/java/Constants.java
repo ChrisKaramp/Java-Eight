@@ -1,28 +1,20 @@
-<<<<<<< HEAD
 import java.awt.Dimension;
 import java.awt.Toolkit;
-=======
->>>>>>> main
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 public class Constants {
 
-<<<<<<< HEAD
     // data file/dir constants
-    public static final String FILE_NAME_IN_RESOURCES = "/resources/Greece.csv";
+    public static final String FILE_NAME_IN_RESOURCES = "/Greece.csv";
 
     public static final Path CURRENT_WORKING_DIRECTORY = FileSystems.getDefault().getPath("").toAbsolutePath();
 
-    public static final String DATA_FILE_PATH = CURRENT_WORKING_DIRECTORY + FILE_NAME_IN_RESOURCES;
+    public static final String DATA_DIRECTORY = "data";
+
+    public static final String DATA_FILE_PATH = DATA_DIRECTORY + FILE_NAME_IN_RESOURCES;
 
     // array data constants
-=======
-    public static final Path CURRENT_WORKING_DIRECTORY = FileSystems.getDefault().getPath("").toAbsolutePath();
-
-    public static final String DATA_FILE_PATH = CURRENT_WORKING_DIRECTORY + "/resources/Greece.csv";
-
->>>>>>> main
     public static final String[] DATA_FILE_HEADERS = {
         "ΈΤΟΣ",
         "1. ΈΣΟΔΑ ΣΥΝΟΛΟ",
@@ -53,10 +45,7 @@ public class Constants {
         "53. Χρεωστικοί τίτλοι (υποχρεώσεις - έξοδα)",
         "54. Δάνεια (έξοδα)",
         "57. Χρηματοοικονομικά παράγωγα",
-<<<<<<< HEAD
         "ΑΠΟΤΕΛΕΣΜΑ ΚΡΑΤΙΚΟΥ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ (ΕΣΟΔΑ-ΕΞΟΔΑ)",
-=======
->>>>>>> main
         "1001. Προεδρία της Δημοκρατίας",
         "1001. Προεδρία της Δημοκρατίας",
         "1001. Προεδρία της Δημοκρατίας",
@@ -158,17 +147,11 @@ public class Constants {
     // building point constants
     public static final int BO_LEFT_PANEL_START = 1;
     public static final int BO_RIGHT_PANEL_START = 13;
-<<<<<<< HEAD
     public static final int BO_BOTTOM_PANEL_START = 29;
     public static final int BD_NESTED_PANEL1_START = 30;
     public static final int BD_NESTED_PANEL2_START = 39;
     public static final int BD_NESTED_PANEL3_START = 99;
     public static final int BD_BOTTOM_PANEL_START = 123;
-=======
-    public static final int BD_NESTED_PANEL1_START = 29;
-    public static final int BD_NESTED_PANEL2_START = 38;
-    public static final int BD_NESTED_PANEL3_START = 98;
->>>>>>> main
     public static final int ENDING_POINT = DATA_FILE_HEADERS.length;
 
     // delimiter constants
