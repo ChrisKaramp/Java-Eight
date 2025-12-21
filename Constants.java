@@ -1,27 +1,12 @@
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.awt.Color;
 
 public class Constants {
 
-    //Economic UI Colors
-
-    public static final Color ECON_FRAME_BG = new Color(240, 240, 240);
-    public static final Color ECON_TOP_PANEL = new Color(220, 220, 220);
-    public static final Color ECON_INCOME_PANEL = new Color(200, 230, 201);
-    public static final Color ECON_EXPENSES_PANEL = new Color(255, 204, 203);
-    public static final Color ECON_BOTTOM_PANEL = new Color(255, 224, 178);
-
-    // data file/dir constants
-    public static final String FILE_NAME_IN_RESOURCES = "/resources/Greece.csv";
-
     public static final Path CURRENT_WORKING_DIRECTORY = FileSystems.getDefault().getPath("").toAbsolutePath();
 
-    public static final String DATA_FILE_PATH = CURRENT_WORKING_DIRECTORY + FILE_NAME_IN_RESOURCES;
+    public static final String DATA_FILE_PATH = CURRENT_WORKING_DIRECTORY + "/resources/Greece.csv";
 
-    // array data constants
     public static final String[] DATA_FILE_HEADERS = {
         "ΈΤΟΣ",
         "1. ΈΣΟΔΑ ΣΥΝΟΛΟ",
