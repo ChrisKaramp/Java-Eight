@@ -4,19 +4,22 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.*;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.KeyStroke;
 import javax.swing.border.Border;
 
 public class Budget_origin_window_model extends JFrame {
 
     // frame object constructor
-    public Budget_origin_window_model(int window_width, int window_height, String dataFilePath) throws IOException {
+    public Budget_origin_window_model(int window_width, int window_height, String dataFilePath, String dataFolder) throws IOException {
         // define a structure to keep panels connected
         ArrayList<Panel_using_array> panelsToBeControlled = new ArrayList<>();
         //// define the FOUR CROSSED panels into this frame will be split
         // define top panel
         Top_panel_bo_model topPanelArea
-            = new Top_panel_bo_model(dataFilePath, panelsToBeControlled);
+            = new Top_panel_bo_model(dataFilePath, dataFolder, panelsToBeControlled);
         Panel_using_array bottomPanelArea
             = new Panel_using_array
             (dataFilePath, Constants.BO_BOTTOM_PANEL_START, Constants.BD_NESTED_PANEL1_START, 2, true, null, topPanelArea);
@@ -88,3 +91,4 @@ public class Budget_origin_window_model extends JFrame {
                 Constants.BO_BOTTOM_PANEL_START);
     }
 }
+
