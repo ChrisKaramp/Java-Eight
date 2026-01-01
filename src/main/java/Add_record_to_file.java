@@ -10,7 +10,6 @@ public class Add_record_to_file {
         try ( FileWriter recordFileWriter = new FileWriter(dataFilePath, appendORWriteFlag); ) {
             recordFileWriter.append(dataRecord + "\n");
             recordFileWriter.close();
-            //System.out.println("appended:" + dataRecord);
         } catch (FileNotFoundException e) {
             throw e;
         } catch (IOException e) {
