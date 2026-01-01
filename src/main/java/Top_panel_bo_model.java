@@ -1,36 +1,71 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.*;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Top_panel_bo_model extends JPanel {
 
     //// define panel components to be used and placed into
     // countries selection components
     private final JLabel comparisonJL = new JLabel("Σύγκριση:");
-    String[] countries = { "France", "Italy", "Germany", "USA", "UK" };
-    JComboBox<String> countryselectJCB = new JComboBox<>(countries);
+    private final Comparison_combobox countrySelectLCB;
     // mass update components
-    private Listening_button massDataSaveLB;
+    private final Listening_button massDataSaveLB;
     // year selection components
     private final JLabel yearJL = new JLabel("Έτος:");
-    private Listening_combobox yearSelectLCB;
+    private final Listening_combobox yearSelectLCB;
     // year add components
-    Listening_button yearAddLB;
+    private final Listening_button yearAddLB;
     static JTextField yearaddJTF = new JTextField("2000");
     // budget distribution launch components
-    Listening_button budgetDistributionLaunchLB;
+    private final Listening_button budgetDistributionLaunchLB;
 
     // panel object constructor
-    public Top_panel_bo_model(String dataFilePath, ArrayList<Panel_using_array> panelsToBeControlled) throws IOException {
-        // initialize year selection combobox with reference to a panel_using_array type panel
-        this.massDataSaveLB = new Listening_button("Μαζική αποθήκευση", "mass update", this, dataFilePath, panelsToBeControlled, this);
-        this.yearSelectLCB = new Listening_combobox(dataFilePath, panelsToBeControlled);
-        this.yearAddLB = new Listening_button("Προσθήκη έτους", "add year", this, dataFilePath, panelsToBeControlled, this);
-        this.budgetDistributionLaunchLB = new Listening_button("Κατανομή", "launch budget distribution", this, dataFilePath, panelsToBeControlled, this);
+    public Top_panel_bo_model(String dataFilePath, String dataFolder, ArrayList<Panel_using_array> panelsToBeControlled) throws IOException {
 
-        // place components on panel
+        //// initialize components
+        // initialize mass data save button
+        this.massDataSaveLB =
+            new Listening_button
+            ("Μαζική αποθήκευση",
+            "mass update",
+            this,
+            dataFilePath,
+            panelsToBeControlled,
+            this);
+        // initialize year selection combobox
+        this.yearSelectLCB = new Listening_combobox(dataFilePath, panelsToBeControlled);
+        // initialize year adding button
+        this.yearAddLB =
+            new Listening_button
+            ("Προσθήκη έτους",
+            "add year",
+            this,
+            dataFilePath,
+            panelsToBeControlled,
+            this);
+        // initialize budget distribution window launching button
+        this.budgetDistributionLaunchLB =
+        new Listening_button
+        ("Κατανομή",
+        "launch budget distribution",
+        this,
+        dataFilePath,
+        panelsToBeControlled,
+        this);
+        // initialize country selection combobox to have access at year selection combobox
+        this.countrySelectLCB = new Comparison_combobox(this.yearSelectLCB, dataFilePath, dataFolder);
+        
+        //// place components on panel
         this.add(comparisonJL);
-        this.add(countryselectJCB);
+        File_names_getter countryFileNames = new File_names_getter(dataFolder, Constants.CSV_FILE_EXTENSION);
+        for (String country: countryFileNames.getFileNames()) {
+            countrySelectLCB.addItem(country);
+        }
+        this.add(countrySelectLCB);
+        countrySelectLCB.setInitialized();
         this.add(massDataSaveLB);
         this.add(yearJL);
         this.add(yearSelectLCB);
@@ -46,15 +81,8 @@ public class Top_panel_bo_model extends JPanel {
         return yearSelectLCB;
     }
 
-    public void setYearSelectLCB(Listening_combobox yearSelectLCB) {
-        this.yearSelectLCB = yearSelectLCB;
-    }
-
-    public Listening_button getMassDataSaveLB() {
-        return massDataSaveLB;
-    }
-
-    public void setMassDataSaveLB(Listening_button massDataSaveLB) {
-        this.massDataSaveLB = massDataSaveLB;
+    public Comparison_combobox getCountrySelectLCB() {
+        return countrySelectLCB;
     }
 }
+
