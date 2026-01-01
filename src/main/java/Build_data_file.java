@@ -16,8 +16,6 @@ public class Build_data_file {
                 System.out.println("File path: " + dataFile.getAbsolutePath());
                 return "created";
             } else {
-                //System.out.println("File already exists.");
-                //System.out.println("File path: " + dataFile.getAbsolutePath());
                 return "exists";
             }
         } catch (IOException e) {
@@ -61,3 +59,4 @@ public class Build_data_file {
     Add_record_to_file.write_record(dataFilePath, valuesRecordWithDelimiter, appendFlag);
     }
 }
+
