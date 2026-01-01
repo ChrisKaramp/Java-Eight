@@ -4,13 +4,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
+import java.nio.file.Path;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+
 import javax.swing.JOptionPane;
 
 
 public class Copy_from_jar_to_data_folder {
+
+    static Path pathOfcreatedOrExistingFolder;
 
     public static void createDataFolderAndCopyCSVs(String dataFolderName)
             throws IOException {
@@ -30,7 +34,6 @@ public class Copy_from_jar_to_data_folder {
         }
 
         String jarPathStr = location.getAbsolutePath();
-        //System.out.println("location: " + jarPathStr);
 
         // define if run from VSC or jar file
         File baseDir;
@@ -40,11 +43,8 @@ public class Copy_from_jar_to_data_folder {
             baseDir = new File(System.getProperty("user.dir"));
         }
 
-        //System.out.println("base dir: " + baseDir.getAbsolutePath());
-
         // define data directory
         File dataDir = new File(baseDir, dataFolderName);
-        //System.out.println("data dir: " + dataDir.getAbsolutePath());
 
         // try to create data directory if does not exist
         if (!dataDir.exists()) {
@@ -56,11 +56,13 @@ public class Copy_from_jar_to_data_folder {
                     "Failed to create data folder: " + dataDir);
                 throw new IOException("Failed to create data folder: " + dataFolderName);
             } else {
+                pathOfcreatedOrExistingFolder = dataDir.toPath().toAbsolutePath();
                 JOptionPane.showMessageDialog
                     (null,
-                    "Data folder " + dataDir + " created.");
+                    "Data folder\n" + dataDir + "\ncreated.");
             }
         } else {
+            pathOfcreatedOrExistingFolder = dataDir.toPath().toAbsolutePath();
             System.out.println("Data folder\n" + dataDir + "\nalready exists.");
             JOptionPane.showMessageDialog
                 (null,
@@ -97,7 +99,6 @@ public class Copy_from_jar_to_data_folder {
                                 }
                             }
                         }
-                        //System.out.println("Copied: " + entry.getName());
                     }
                 }
             }
@@ -109,3 +110,4 @@ public class Copy_from_jar_to_data_folder {
         }
     }
 }
+
