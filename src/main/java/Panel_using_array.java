@@ -1,8 +1,15 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 public class Panel_using_array extends JPanel {
 
