@@ -125,9 +125,10 @@ repo-root/
 └── docs/ # Τεκμηρίωση & UML
 ```
 
-## Τεκμηρίωση JavaDoc
+## Τεκμηρίωση JavaDoc (fork)
 
-📘 [JavaDoc](https://ChrisKaramp.github.io/Java-Eight/apidocs/)
+📘 [JavaDoc](https://Duke13gr.github.io/Java-Eight/apidocs/)
+
 
 
 
