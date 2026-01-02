@@ -10,7 +10,7 @@ public class Add_year {
     public static void add_year_into_data_file(String dataFilePath, String yearEntered, Object somePanel) throws IOException {
         // check if year already exists
         if ( Arrays.asList(Get_years.Get_years_into_strings_array(dataFilePath)).contains(yearEntered) ) {
-            JOptionPane.showMessageDialog(null, "Year already exists in data file");
+            JOptionPane.showMessageDialog(null, yearEntered + " --> Year already exists in data file");
         } else {
             // append, NOT write over
             final boolean appendFlag = true;
@@ -40,8 +40,7 @@ public class Add_year {
             }
             // notify user
             JOptionPane.showMessageDialog
-                (null, "Year added successfully.");
-
+                (null, yearEntered + " --> Year added successfully.");
         }
     }
 }

@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Button_handler implements ActionListener {
@@ -34,7 +35,7 @@ public class Button_handler implements ActionListener {
                         = new Budget_distribution_window_model
                         (Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, getDataFilePath(), getSomePanel());
                     budgetDistributionWindow.setTitle
-                        ("Κατανομή Κρατικού Προϋπολογισμού (Ctrl 1/2/3 --> reset)");
+                        ("Κατανομή Κρατικού Προϋπολογισμού (Ctrl 1/2/3 --> reset) - Επιτρεπόμενες τιμές: " + Integer.MIN_VALUE + " έως " + Integer.MAX_VALUE);
                 }
                 default -> JOptionPane.showMessageDialog
                         (null, getButtonType());

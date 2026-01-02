@@ -59,4 +59,3 @@ public class Build_data_file {
     Add_record_to_file.write_record(dataFilePath, valuesRecordWithDelimiter, appendFlag);
     }
 }
-

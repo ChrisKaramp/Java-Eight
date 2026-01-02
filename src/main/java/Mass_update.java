@@ -1,10 +1,12 @@
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 
 public class Mass_update {
     
@@ -30,14 +32,6 @@ public class Mass_update {
             }
         }
 
-        /*
-        System.out.println("VALUES IN MATCHING RECORD:");
-        for (String value : matchingRecord) {
-            System.out.print(value + " ");
-        }
-        System.out.println();
-        */
-
         // get data from widgets
         Widget_getter widgetGetter =
             new Widget_getter(panelsToBeRan, yearSelected);
@@ -59,14 +53,6 @@ public class Mass_update {
                 "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        /*
-        System.out.println("VALUES IN MATCHING RECORD - AFTER UPDATING:");
-        for (String value : matchingRecord) {
-            System.out.print(value + " ");
-        }
-        System.out.println();
-        */
-
         // write all data into data file, replacing old data
         for (List<String> dataFileRecord : dataFileRecords) {
             //System.out.println(dataFileRecord);
@@ -77,6 +63,21 @@ public class Mass_update {
             // at the end of headers record, switch from "write" to "append"
             if (dataFileRecords.indexOf(dataFileRecord) == 0) {
                 appendFlag = true;
+            }
+        }
+
+        // for every panel
+        for (Panel_using_array panel : panelsToBeRan) {
+            // and spinner on this panel
+            for (Listening_spinner spinner : panel.getListeningSpinnersToBeCreated()) {
+                // reset spinner color when mass update pressed
+                // avoid casting to jspinner
+                JComponent editor = spinner.getEditor();
+                if (editor instanceof JSpinner.DefaultEditor def) {
+                    JFormattedTextField tf = def.getTextField();
+                    tf.setBackground(null);
+                    tf.setForeground(null);
+                }
             }
         }
     }

@@ -1,18 +1,14 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
 
 public class Constants {
 
+    public static final String CSV_FILE_EXTENSION = ".csv";
+
     // data file/dir constants
-    public static final String FILE_NAME_IN_RESOURCES = "/Greece.csv";
+    public static final String FILE_NAME_IN_RESOURCES = "Greece.csv";
 
-    public static final Path CURRENT_WORKING_DIRECTORY = FileSystems.getDefault().getPath("").toAbsolutePath();
-
-    public static final String DATA_DIRECTORY = "data";
-
-    public static final String DATA_FILE_PATH = DATA_DIRECTORY + FILE_NAME_IN_RESOURCES;
+    public static final String DATA_DIRECTORY_NAME = "data";
 
     // array data constants
     public static final String[] DATA_FILE_HEADERS = {

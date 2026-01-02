@@ -11,8 +11,6 @@ public class Listening_combobox extends JComboBox<String> {
     (String dataFilePath, ArrayList<Panel_using_array> panelsToBeControlled) throws IOException {
         this.addItemListener((ItemEvent evt) -> {
             if (evt.getStateChange() == ItemEvent.SELECTED) {
-                //String selectedYear = this.getSelectedItem().toString();
-                //System.out.println("Selected year: " + selectedYear);
                 // fill panel spinners with values for the selected year
                 if (panelsToBeControlled.size() == 3) {
                     try {

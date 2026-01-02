@@ -38,4 +38,3 @@ public class Bottom_panel_bo_model extends JPanel {
         this.add(showbudgetResultCoverJL);
     }
 }
-

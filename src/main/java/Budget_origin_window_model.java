@@ -91,4 +91,3 @@ public class Budget_origin_window_model extends JFrame {
                 Constants.BO_BOTTOM_PANEL_START);
     }
 }
-

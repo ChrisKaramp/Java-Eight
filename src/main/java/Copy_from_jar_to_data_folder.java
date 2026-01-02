@@ -110,4 +110,3 @@ public class Copy_from_jar_to_data_folder {
         }
     }
 }
-

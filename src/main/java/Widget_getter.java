@@ -26,8 +26,6 @@ public class Widget_getter {
             for (int currentPanelIndex = 0;
                 currentPanelIndex < panelsToBeRan.size();
                 currentPanelIndex++) {
-                // print panel index
-                //System.out.println("Processing panel index: " + currentPanelIndex);
                 // loop through components of the current panel
                 // only count JLabels and Listening Spinners
                 // don't count JButtons, they don't contain values

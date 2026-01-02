@@ -1,7 +1,12 @@
+import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
+import javax.swing.text.NumberFormatter;
 
 public class Listening_spinner extends JSpinner {
 
@@ -10,7 +15,27 @@ public class Listening_spinner extends JSpinner {
         // gridColumns argument defines spinner behavior
         this.setModel(new SpinnerNumberModel
             (0, Integer.MIN_VALUE, Integer.MAX_VALUE, 1));
+ 
+        // restrict to only digits input
+        JComponent editor = getEditor();
+        JFormattedTextField tf = null; // to be referenced
+        // avoid casting
+        if (editor instanceof JSpinner.DefaultEditor def) {
+            tf = def.getTextField();
+            if (tf.getFormatter() instanceof NumberFormatter nf) {
+                nf.setAllowsInvalid(false);
+            }
+        }
+
+        // keep reference
+        final JFormattedTextField textField = tf;
+  
+        // add an event listener
         this.addChangeListener((ChangeEvent e) -> {
+            
+            // get reference, change color
+            textField.setBackground(Color.CYAN);
+
             if (gridColumns == 2) {
                 // only update particular labels with spinner values totals
                 Integer total = 0;
@@ -69,7 +94,6 @@ public class Listening_spinner extends JSpinner {
                     }
                 }
                 //// place general totals on bottom panel general total labels
-                //Integer currentGeneralTotal;
                 int[] columnSubTotals = new int[gridColumns -1];
                 for (int panelIndex = 1; panelIndex < panelsToBeControlled.size(); panelIndex++) {
                     // if this is a panel which does not use labels
