@@ -147,8 +147,46 @@ repo-root/
 - τις βασικές κλάσεις της εφαρμογής
 - τις σχέσεις κληρονομικότητας και συσχέτισης
 - τις κύριες μεθόδους και τα δεδομένα που διαχειρίζονται
+```mermaid 
+graph TD
+    %% Models and Core Logic
+    subgraph Logic_Layer [Logic & Models]
+        BOWM[Budget_origin_window_model]
+        BDWM[Budget_distribution_window_model]
+        CONST[Constants.java]
+        PFAD[Pfad.java]
+    end
 
+    %% UI Components
+    subgraph UI_Layer [User Interface]
+        PUA[Panel_using_array]
+        LB[Listening_button]
+        LS[Listening_spinner]
+        LC[Listening_combobox]
+    end
 
+    %% Data Storage
+    subgraph Storage [Data & Resources]
+        GREECE[(Greece.csv)]
+        ORG[(organic_data.csv)]
+    end
+
+    %% Relationships
+    BOWM -->|Δημιουργεί ArrayList| PUA
+    BDWM -->|Δημιουργεί ArrayList| PUA
+    
+    PUA -->|Τοποθετεί| LB
+    PUA -->|Τοποθετεί| LS
+    
+    LB -.->|Έλεγχος μέσω Getter/Setter| PUA
+    LS -.->|Έλεγχος μέσω Getter/Setter| PUA
+    
+    LC -->|Έλεγχος διαδικασιών| YEARS[Έτη / Year Processes]
+    
+    PFAD -->|Ορίζει διαδρομές| GREECE
+    PFAD -->|Ορίζει διαδρομές| ORG
+    CONST -->|Παράμετροι| BOWM
+    ```
 
 ## Επισκόπηση δομών δεδομένων
 
