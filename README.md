@@ -148,6 +148,10 @@ repo-root/
 - τις σχέσεις κληρονομικότητας και συσχέτισης
 - τις κύριες μεθόδους και τα δεδομένα που διαχειρίζονται
 
+## Σχεδιασμός Συστήματος (UML)
+
+👉 [Διάγραμμα UML](docs/uml.png)
+
 ```mermaid
 graph TD
     %% Models and Core Logic
@@ -175,21 +179,16 @@ graph TD
     %% Relationships
     BOWM -->|Δημιουργεί ArrayList| PUA
     BDWM -->|Δημιουργεί ArrayList| PUA
-    
     PUA -->|Τοποθετεί| LB
     PUA -->|Τοποθετεί| LS
-    
     LB -.->|Έλεγχος μέσω Getter/Setter| PUA
     LS -.->|Έλεγχος μέσω Getter/Setter| PUA
-    
     LC -->|Έλεγχος διαδικασιών| YEARS[Έτη / Year Processes]
-    
     PFAD -->|Ορίζει διαδρομές| GREECE
     PFAD -->|Ορίζει διαδρομές| ORG
     CONST -->|Παράμετροι| BOWM
-    
     ```
-
+    
 ## Επισκόπηση δομών δεδομένων
 
 ### Α. ΔΙΕΠΑΦΗ
