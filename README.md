@@ -148,7 +148,7 @@ repo-root/
 - τις σχέσεις κληρονομικότητας και συσχέτισης
 - τις κύριες μεθόδους και τα δεδομένα που διαχειρίζονται
 
-```mermaid 
+```mermaid
 graph TD
     %% Models and Core Logic
     subgraph Logic_Layer [Logic & Models]
