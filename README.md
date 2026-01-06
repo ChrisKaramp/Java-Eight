@@ -93,11 +93,14 @@ o	Συλλέγει τα δεδομένα από τη διεπαφή και τα 
 
 ## Οδηγίες Μεταγλώττισης και Εκτέλεσης (PowerShell)
 
-Κατεβάζετε το project (PS/bash):
+Κατεβάζετε το project:
 
+```powershell
 git clone https://github.com/ChrisKaramp/Java-Eight.git
 cd Java-Eight
 git checkout tags/v1.3
+```
+
 Τρέξτε το project όπως περιγράφεται στην ενότητα Εκτέλεση του README.
 
 Από τον ριζικό φάκελο του project:
