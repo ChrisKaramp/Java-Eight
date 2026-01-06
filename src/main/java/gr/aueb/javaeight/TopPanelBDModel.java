@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.GridLayout;
 import java.io.IOException;
 
@@ -17,8 +19,8 @@ public class TopPanelBDModel extends JPanel {
     JLabel generalTotalJL = new JLabel("ΓΕΝΙΚΟ ΣΥΝΟΛΟ");
     /**
      * Creates a new panel using certain components.
-     * @param dataFilePath
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @throws IOException I/O error exception
      */
     public TopPanelBDModel(String dataFilePath) throws IOException {
 

@@ -1,12 +1,22 @@
+package gr.aueb.javaeight;
+
 import java.awt.event.ItemEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 
+/**
+ * Creates a menu to select year to show data
+ */
 public class YearSelectionCombobox extends JComboBox<String> {
 
-    // combobox object constructor
+    /**
+     * 
+     * @param dataFilePath absolute path to data file
+     * @param panelsToBeControlled structure to provide control on panels
+     * @throws IOException I/O error exception
+     */
     public YearSelectionCombobox
     (String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeControlled) throws IOException {
         this.addItemListener((ItemEvent evt) -> {

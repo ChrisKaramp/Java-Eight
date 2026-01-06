@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -16,9 +18,9 @@ public class CalculationsSpinner extends JSpinner {
      * Calculates (sub)totals and puts them in proper spinner/labels.
      * Changes color on value change.
      * Restricts entry to digits only.
-     * @param gridColumns
-     * @param thisPanel
-     * @param panelsToBeControlled
+     * @param gridColumns number of columns (1+N)
+     * @param thisPanel this panel
+     * @param panelsToBeControlled structure to provide control on panels
      */
     public CalculationsSpinner(int gridColumns, ArrayBasedPanel thisPanel, ArrayList<ArrayBasedPanel> panelsToBeControlled) {
 
@@ -67,7 +69,6 @@ public class CalculationsSpinner extends JSpinner {
                             Integer.valueOf(panelsToBeControlled.get(2).getJlabelsToBeCreated()[1].getText());
                         // set budget result label
                         panelsToBeControlled.get(0).getJlabelsToBeCreated()[1].setText(budgetResult.toString());
-                        //System.out.println(budgetResult);
                     }
                     
                 }

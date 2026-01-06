@@ -1,6 +1,11 @@
+package gr.aueb.javaeight;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+/**
+ * Keeps constants and final stuctures used through the entire application
+ */
 public class Constants {
 
     public static final String CSV_FILE_EXTENSION = ".csv";

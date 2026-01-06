@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -27,10 +29,10 @@ public class TopPanelBOModel extends JPanel {
 
     /**
      * Creates a new panel using certain components.
-     * @param dataFilePath
-     * @param dataFolder
-     * @param panelsToBeControlled
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param dataFolder absolute path to data folder
+     * @param panelsToBeControlled structure to provide control on panels
+     * @throws IOException I/O error exception
      */
     public TopPanelBOModel(String dataFilePath, String dataFolder, ArrayList<ArrayBasedPanel> panelsToBeControlled) throws IOException {
 

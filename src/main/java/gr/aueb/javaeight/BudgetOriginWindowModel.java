@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,11 +20,11 @@ import javax.swing.border.Border;
 public class BudgetOriginWindowModel extends JFrame {
     /**
      * Creates a new frame object, placing panel objects on it.
-     * @param window_width
-     * @param window_height
-     * @param dataFilePath
-     * @param dataFolder
-     * @throws IOException
+     * @param window_width frame width
+     * @param window_height frame height
+     * @param dataFilePath absolute path to data file
+     * @param dataFolder absolute path to data folder
+     * @throws IOException I/O error exception
      */
     public BudgetOriginWindowModel(int window_width, int window_height, String dataFilePath, String dataFolder) throws IOException {
         // define a structure to keep panels connected

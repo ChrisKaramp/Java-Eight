@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +22,12 @@ public class MassUpdater {
      * Updates proper record according to selected year.
      * Rewrites updated data into file.
      * Notifies user in case of any failure.
-     * @param dataFilePath
-     * @param panelsToBeRan
-     * @param panelWithYearSelectLCB
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param panelsToBeRun panels to be run
+     * @param panelWithYearSelectLCB a reference to year selection panel
+     * @throws IOException I/O error exception
      */
-    public static void WriteSortedDataIntoFile(String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeRan, TopPanelBOModel panelWithYearSelectLCB) throws IOException {
+    public static void WriteSortedDataIntoFile(String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeRun, TopPanelBOModel panelWithYearSelectLCB) throws IOException {
         // get selected year from year selection combobox in top panel
         String yearSelected = (String) panelWithYearSelectLCB.getYearSelectLCB().getSelectedItem();
 
@@ -47,12 +49,11 @@ public class MassUpdater {
 
         // get data from widgets
         PanelValuesProvider widgetGetter =
-            new PanelValuesProvider(panelsToBeRan, yearSelected);
+            new PanelValuesProvider(panelsToBeRun, yearSelected);
         String[] halfDataFile1D;
         halfDataFile1D = widgetGetter.getDataFile1D();
         
         if (halfDataFile1D != null) {
-            //System.out.println("DATA FILE 1D FROM WIDGET GETTER:");
             for (int halfIndex = 0; halfIndex < halfDataFile1D.length; halfIndex++) {
                 if ( halfDataFile1D[halfIndex] != null ) {
                     matchingRecord.set(halfIndex, halfDataFile1D[halfIndex]);
@@ -78,7 +79,7 @@ public class MassUpdater {
         }
 
         // for every panel
-        for (ArrayBasedPanel panel : panelsToBeRan) {
+        for (ArrayBasedPanel panel : panelsToBeRun) {
             // and spinner on this panel
             for (CalculationsSpinner spinner : panel.getListeningSpinnersToBeCreated()) {
                 // reset spinner color when mass update pressed

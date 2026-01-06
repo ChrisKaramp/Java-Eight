@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,8 +23,8 @@ public class FileDataProvider {
      * Fetches all data from file AND sorts them into a list.
      * Sorts data list, so it can be used to sort data file as well.
      * Create sorted data array that is produced from sorted data list.
-     * @param dataFilePath
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @throws IOException I/O error exception
      */
     public FileDataProvider(String dataFilePath) throws IOException {
 

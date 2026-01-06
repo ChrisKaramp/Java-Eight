@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,10 +14,10 @@ import javax.swing.JOptionPane;
 public class YearAdder {
     /**
      * Adds a new year into a data file and, subsequently into a combobox structure. 
-     * @param dataFilePath
-     * @param yearEntered
-     * @param somePanel
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param yearEntered year entered
+     * @param somePanel panel to be controlled
+     * @throws IOException I/O error exception
      */
     public static void addYearIntoDataFile(String dataFilePath, String yearEntered, Object somePanel) throws IOException {
         // check if year already exists

@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.GridLayout;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,9 +13,9 @@ import javax.swing.JPanel;
 public class BottomPanelBOModel extends JPanel {
     /**
      * Creates a new panel using certain components.
-     * @param dataFilePath
-     * @param panelsToBeControlled
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param panelsToBeControlled structure to provide control on panels
+     * @throws IOException I/O error exception
      */    
     public BottomPanelBOModel (String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeControlled) throws IOException {
         // set panel layout

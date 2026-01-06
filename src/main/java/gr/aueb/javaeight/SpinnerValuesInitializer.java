@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
@@ -15,12 +17,12 @@ public class SpinnerValuesInitializer {
      * Fetches proper record according to selected year, into structure.
      * Puts record values from structure to proper spinners of current frame panels.
      * (Sub)totals are automatically calculated, so only spinners are initialized.
-     * @param dataFilePath
-     * @param yearSelected
-     * @param pua
-     * @param fromHeader
-     * @param toHeader
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param yearSelected selected year
+     * @param pua array based panel
+     * @param fromHeader starting point in headers array in Constants.java
+     * @param toHeader ending point in headers array in Constants.java
+     * @throws IOException I/O error exception
      */
     public static void GetSelectedYearValues(String dataFilePath, String yearSelected, ArrayBasedPanel pua, int fromHeader, int toHeader) throws IOException {
 

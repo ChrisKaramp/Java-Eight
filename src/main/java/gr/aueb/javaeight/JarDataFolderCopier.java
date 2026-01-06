@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,8 +26,8 @@ public class JarDataFolderCopier {
      * Extracts data files (this case .csv using parameter) from .jar file to data folder.
      * Notify user if files were extracted (.jar case) or created (IDE case).
      * Notify user in case of any failure.
-     * @param dataFolderName
-     * @throws IOException
+     * @param dataFolderName absolute path to data folder
+     * @throws IOException I/O error exception
      */
     public static void createDataFolderAndCopyCSVs(String dataFolderName)
             throws IOException {
@@ -98,7 +100,6 @@ public class JarDataFolderCopier {
                             );
 
                             if (outFile.exists()) {
-                                //System.out.println("Skipped (already exists): " + outFile.getName());
                                 continue;
                             }
 

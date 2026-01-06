@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -17,12 +19,12 @@ public class ComparisonArrayPanel extends JPanel {
      * Places .csv data from data file into a 2D array.
      * Uses array to create and properly form labels to be put on panel.
      * Labels represent data using a certain format.
-     * @param filePath
-     * @param fromArrayPosition
-     * @param toArrayPosition
-     * @param gridColumns
-     * @param selectedYear
-     * @throws IOException
+     * @param filePath absolute path to some country's data file
+     * @param fromArrayPosition position in headers array in Constants.java to start from
+     * @param toArrayPosition position in headers array in Constants.java to end
+     * @param gridColumns number of columns (1+N)
+     * @param selectedYear currently selected year
+     * @throws IOException I/O error exception
      */
     public ComparisonArrayPanel(
             String filePath,

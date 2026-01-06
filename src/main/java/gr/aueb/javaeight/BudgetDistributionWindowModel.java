@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.IOException;
@@ -15,11 +17,11 @@ import javax.swing.KeyStroke;
 public class BudgetDistributionWindowModel extends JFrame {
     /**
      * Creates a new frame object, placing panel objects on it.
-     * @param window_width
-     * @param window_height
-     * @param dataFilePath
-     * @param somePanel
-     * @throws IOException
+     * @param window_width frame width
+     * @param window_height frame height
+     * @param dataFilePath absolute path to data file
+     * @param somePanel panel to be controlled
+     * @throws IOException I/O error exception
      */
     public BudgetDistributionWindowModel(int window_width, int window_height, String dataFilePath, Object somePanel) throws IOException {
         // define a structure to keep panels connected

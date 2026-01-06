@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -13,23 +15,23 @@ public class ButtonHandler implements ActionListener {
     private String buttonType;
     private Object somePanel;
     private String dataFilePath;
-    private ArrayList<ArrayBasedPanel> panelsToBeRan;
+    private ArrayList<ArrayBasedPanel> panelsToBeRun;
     private TopPanelBOModel panelContainingYear;
     
     /**
      * Picks button type using a switch/case structure and passes parameters.
      * Safe by default case.
-     * @param bt
-     * @param sp
-     * @param dfp
-     * @param ptbr
-     * @param pcy
+     * @param bt button type
+     * @param sp panel to be controlled
+     * @param dfp absolute path to data file
+     * @param ptbr panels to be run
+     * @param pcy panel containing selected year
      */
     public ButtonHandler(String bt, Object sp, String dfp, ArrayList<ArrayBasedPanel> ptbr, TopPanelBOModel pcy) {
         setButtonType(bt);
         setSomePanel(sp);
         setDataFilePath(dfp);
-        setPanelsToBeRan(ptbr);
+        setPanelsToBeRun(ptbr);
         setPanelContainingYear(pcy);
   	}   
 
@@ -41,7 +43,7 @@ public class ButtonHandler implements ActionListener {
                         (getDataFilePath(), TopPanelBOModel.yearaddJTF.getText(),
                          getSomePanel());
                 case "mass update" -> MassUpdater.WriteSortedDataIntoFile
-                        (getDataFilePath(), getPanelsToBeRan(), getPanelContainingYear());
+                        (getDataFilePath(), getPanelsToBeRun(), getPanelContainingYear());
                 case "launch budget distribution" -> { 
                     BudgetDistributionWindowModel budgetDistributionWindow
                         = new BudgetDistributionWindowModel
@@ -82,12 +84,12 @@ public class ButtonHandler implements ActionListener {
         this.dataFilePath = dfp;
     }
 
-    public ArrayList<ArrayBasedPanel> getPanelsToBeRan() {
-        return panelsToBeRan;
+    public ArrayList<ArrayBasedPanel> getPanelsToBeRun() {
+        return panelsToBeRun;
     }
 
-    private void setPanelsToBeRan(ArrayList<ArrayBasedPanel> panelsToBeRan) {
-        this.panelsToBeRan = panelsToBeRan;
+    private void setPanelsToBeRun(ArrayList<ArrayBasedPanel> panelsToBeRun) {
+        this.panelsToBeRun = panelsToBeRun;
     }
 
     public TopPanelBOModel getPanelContainingYear() {

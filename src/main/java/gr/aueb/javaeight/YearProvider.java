@@ -1,9 +1,19 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides other classes with years existing in a data file
+ */
 public class YearProvider {
-    
+    /**
+     * 
+     * @param dataFilePath absolute path to data file
+     * @return an array of strings containing years
+     * @throws IOException I/O error exception
+     */
     public static String[] GetYearsIntoStringsArray (String dataFilePath) throws IOException {
         // create empty array of strings to be used as year drop down menu data
         ArrayList<String> yearsList = new ArrayList<>();

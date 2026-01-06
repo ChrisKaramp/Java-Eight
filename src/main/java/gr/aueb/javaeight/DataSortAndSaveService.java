@@ -1,3 +1,4 @@
+package gr.aueb.javaeight;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,8 +13,8 @@ public class DataSortAndSaveService {
      * Gets data from file.
      * Sorts data in a structure.
      * Rewrites headers record (to re-write file), but appends rest value records.
-     * @param dataFilePath
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @throws IOException I/O error exception
      */
     public static void WriteSortedDataIntoFile(String dataFilePath) throws IOException {
 

@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,15 +19,15 @@ public class CountryComparisonWindowModel extends JFrame {
      * Creates panel objects.
      * Places panels on itself.
      * Configures them and itself.
-     * @param window_width
-     * @param window_height
-     * @param dataFilePath
-     * @param foreignCountryDataFilePath
-     * @param startingPoint
-     * @param endingPoint
-     * @param gridColumns
-     * @param selectedYear
-     * @throws IOException
+     * @param window_width frame width
+     * @param window_height frame height
+     * @param dataFilePath absolute path to data file
+     * @param foreignCountryDataFilePath absolute path to a country's data file
+     * @param startingPoint start point of panel data in headers array in Constants.java
+     * @param endingPoint end point of panel data in headers array in Constants.java
+     * @param gridColumns number of columns (1+N)
+     * @param selectedYear year selected
+     * @throws IOException I/O error exception
      */
     public CountryComparisonWindowModel(int window_width, int window_height, String dataFilePath, String foreignCountryDataFilePath, int startingPoint, int endingPoint, int gridColumns, String selectedYear) throws IOException {
 

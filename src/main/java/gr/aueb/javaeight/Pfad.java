@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
@@ -15,9 +17,9 @@ public class Pfad {
      * Start the application.
      * Create proper file structures.
      * Create the first window.
-     * @param args
-     * @throws IOException
-     * @throws URISyntaxException
+     * @param args command-line arguments passed to the program - not used here
+     * @throws IOException I/O error exception if an input or output error occurs
+     * @throws URISyntaxException if the specified URI is not valid
      */
     public static void main(String[] args) throws IOException, URISyntaxException {
 

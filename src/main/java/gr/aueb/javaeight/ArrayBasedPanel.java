@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -25,14 +27,14 @@ public class ArrayBasedPanel extends JPanel {
      * Creates components and places them on panel using an array.
      * Gets data from array defined in Constants.java class.
      * Uses arguments that provide limits, column numbers and more information.
-     * @param dataFilePath
-     * @param fromArrayPosition
-     * @param toArrayPosition
-     * @param gridColumns
-     * @param labelComponentsFirst
-     * @param panelsToBeControlled
-     * @param panelContainingYear
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param fromArrayPosition position in headers array in Constants.java to start from
+     * @param toArrayPosition position in headers array in Constants.java to end
+     * @param gridColumns number of columns (1+N)
+     * @param labelComponentsFirst flag to indicate if first row is of labels
+     * @param panelsToBeControlled structure to provide control on panels
+     * @param panelContainingYear panel that contains selected year menu
+     * @throws IOException I/O error exception
      */
     public ArrayBasedPanel(String dataFilePath, int fromArrayPosition, int toArrayPosition, int gridColumns, boolean labelComponentsFirst, ArrayList<ArrayBasedPanel> panelsToBeControlled, TopPanelBOModel panelContainingYear) throws IOException {
         // define rows in grid number

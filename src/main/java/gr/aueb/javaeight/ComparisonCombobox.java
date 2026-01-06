@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.event.ItemEvent;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -17,10 +19,10 @@ public class ComparisonCombobox extends JComboBox<String> {
      * Adds a listener for this combobox.
      * Launches a couple of windows, each of them has left/right panel.
      * Represents domestic country data on left panel, foreign (selected) on right.
-     * @param yearSelect
-     * @param dataFilePath
-     * @param dataFolder
-     * @throws IOException
+     * @param yearSelect year selection menu (combobox)
+     * @param dataFilePath absolute path to data file
+     * @param dataFolder absolute path to data folder
+     * @throws IOException I/O error exception
      */
     public ComparisonCombobox(YearSelectionCombobox yearSelect, String dataFilePath, String dataFolder) throws IOException {
 

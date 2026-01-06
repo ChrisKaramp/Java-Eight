@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,10 +13,10 @@ import javax.swing.JOptionPane;
 public class FileRecordAdder {
     /**
      * Overwrites or appends a record to a data file.
-     * @param dataFilePath
-     * @param dataRecord
-     * @param appendORWriteFlag
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @param dataRecord data record to be written/appended
+     * @param appendORWriteFlag flag of appending or overwriting
+     * @throws IOException I/O error exception
      */
     public static void writeRecord(String dataFilePath, String dataRecord, boolean appendORWriteFlag) throws IOException {
 

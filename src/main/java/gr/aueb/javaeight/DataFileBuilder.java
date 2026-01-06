@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.Year;
@@ -15,8 +17,8 @@ public class DataFileBuilder {
      * Creates a .csv file with argument name at specified path.
      * Notifies user.
      * Returns creation result at main class in order to continue or not.
-     * @param dataFilePath
-     * @return
+     * @param dataFilePath absolute path to data file
+     * @return a message to any class that calls this
      */
     public static String dataFileCreator(String dataFilePath) {
         try {
@@ -50,7 +52,6 @@ public class DataFileBuilder {
     headersRecord.addAll(Arrays.asList(Constants.DATA_FILE_HEADERS));
     // set and add delimiter in headers record
     String headersRecordWithDelimiter = headersRecord.stream().collect(Collectors.joining(Constants.COMMA_DELIMITER));
-    System.out.println(headersRecordWithDelimiter);
     
     // form values record now
     // add year, then add as many zeros as headers (fields)

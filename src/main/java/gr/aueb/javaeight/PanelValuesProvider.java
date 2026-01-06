@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.Component;
 import java.util.ArrayList;
 
@@ -15,11 +17,11 @@ public class PanelValuesProvider {
     /**
      * Runs panels, then panel components and gets their values if not header.
      * Executes complex algorithm, determining frame, panel and component type.
-     * @param panelsToBeRan
-     * @param yearSelected
+     * @param panelsToBeRun panels to be run
+     * @param yearSelected selected year
      */
-    public PanelValuesProvider(ArrayList<ArrayBasedPanel> panelsToBeRan, String yearSelected) {
-        if (panelsToBeRan == null || panelsToBeRan.isEmpty()) {
+    public PanelValuesProvider(ArrayList<ArrayBasedPanel> panelsToBeRun, String yearSelected) {
+        if (panelsToBeRun == null || panelsToBeRun.isEmpty()) {
             this.dataFile1D = null;
             JOptionPane.showMessageDialog
                 (null,
@@ -35,27 +37,27 @@ public class PanelValuesProvider {
             int cioap = 0;
             // loop through panels
             for (int currentPanelIndex = 0;
-                currentPanelIndex < panelsToBeRan.size();
+                currentPanelIndex < panelsToBeRun.size();
                 currentPanelIndex++) {
                 // loop through components of the current panel
                 // only count JLabels and Listening Spinners
                 // don't count JButtons, they don't contain values
                 // Component Index Over This Panel
                 int ciotp = 0;
-                for (Component component : panelsToBeRan.get(currentPanelIndex).getComponents()) {
+                for (Component component : panelsToBeRun.get(currentPanelIndex).getComponents()) {
 
                     // if JLabel
                     switch (component) {
                         case JLabel jlabel -> {
                             if (currentPanelIndex == 0) {
                                 // this is a bottom panel with TOTAL or Title labels
-                                if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 2) {
+                                if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 2) {
                                     // panel has 2 columns --> Budget Origin frame
                                     if (ciotp > 0) {
                                         // skip first label (description), get only total value labels
                                         this.dataFile1D[(cioap - 1) + Constants.BO_BOTTOM_PANEL_START] = jlabel.getText();
                                     }
-                                } else if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 4) {
+                                } else if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 4) {
                                     // panel has 4 columns --> Budget Distribution frame
                                     if (ciotp > 0) {
                                         // skip first label (description), get only total value labels
@@ -66,12 +68,12 @@ public class PanelValuesProvider {
                                 ciotp++;
                             } else { // not a bottom panel - labels contain SUBTOTALS or Titles
                                 // if panel has 2 columns --> Budget Origin frame
-                                if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 2) {                            
+                                if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 2) {                            
                                     if (ciotp > 0) {
                                     // skip first JLabel in panel (it's the title)
                                     dataFile1D[(cioap - 1) - currentPanelIndex] = jlabel.getText();
                                     }
-                                } else if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 4) {
+                                } else if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 4) {
                                     // panel has 4 columns --> Budget Distribution frame
                                     if (ciotp > 0) {
                                     // skip first JLabel in panel (it's the title)
@@ -90,12 +92,12 @@ public class PanelValuesProvider {
                         }
                         case CalculationsSpinner listening_spinner -> {
                             // if panel has 2 columns --> Budget Origin frame
-                            if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 2) {                            
+                            if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 2) {                            
                                 if (ciotp > 0) {
                                 // skip first JLabel in panel (it's the title)
                                 dataFile1D[(cioap - 1) - currentPanelIndex] = listening_spinner.getValue().toString();
                                 }
-                            } else if (panelsToBeRan.get(currentPanelIndex).getPanelGridColumns() == 4) {
+                            } else if (panelsToBeRun.get(currentPanelIndex).getPanelGridColumns() == 4) {
                                 // panel has 4 columns --> Budget Distribution frame
                                 switch (currentPanelIndex) {
                                     case 1:

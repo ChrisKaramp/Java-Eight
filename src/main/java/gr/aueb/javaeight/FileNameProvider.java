@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
@@ -16,8 +18,8 @@ public class FileNameProvider {
     /**
      * Gets filenames of an extension (probably .csv) in a given folder.
      * Notifies user in case of failure.
-     * @param givenFolder
-     * @param fileWildCard
+     * @param givenFolder folder to be run
+     * @param fileWildCard extension of files to be provided
      */
     FileNameProvider(String givenFolder, String fileWildCard) {
 

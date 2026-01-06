@@ -1,3 +1,5 @@
+package gr.aueb.javaeight;
+
 import java.awt.GridLayout;
 import java.io.IOException;
 
@@ -17,8 +19,8 @@ public class BottomPanelBDModel extends JPanel {
   
     /**
      * Creates a new panel using certain components.
-     * @param dataFilePath
-     * @throws IOException
+     * @param dataFilePath absolute path to data file
+     * @throws IOException I/O error exception
      */
     public BottomPanelBDModel(String dataFilePath) throws IOException {
         // configure panel layout
