@@ -98,7 +98,7 @@ o	Συλλέγει τα δεδομένα από τη διεπαφή και τα 
 ```powershell
 mvn clean
 mvn package
-java -jar target\pfad_j8-1.2.jar
+java -jar target\pfad_j8-1.3.jar
 ή διπλό κλικ στο .jar αρχείο
 ```
 
@@ -116,15 +116,28 @@ java -jar target\pfad_j8-1.2.jar
 
 ```text
 repo-root/
-├── pom.xml # Ρυθμίσεις Maven
+├── pom.xml                 # Ρυθμίσεις Maven
 ├── src/
-│ ├── main/
-│ │ ├── java/ # Πηγαίος κώδικας εφαρμογής - κλάσεις
-│ │ └── resources/data # Αρχεία δεδομένων .csv
-│ └── test/
-│ └── java/ # Μονάδες ελέγχου (tests)
-├── README.md # Τεχνική αναφορά
-└── docs/ # Τεκμηρίωση & UML
+│   ├── main/
+│   │   ├── java/           # Πηγαίος κώδικας εφαρμογής
+│   │   │   └── gr/aueb/javaeight/
+│   │   │       ├── Pfad.java
+│   │   │       ├── ...
+│   │   └── resources/
+│   │       └── data/       # Αρχεία δεδομένων (.csv)
+│   └── test/
+│       └── java/           # Μονάδες ελέγχου (tests)
+├── README.md               # Τεχνική αναφορά
+├── docs/                   # Τεκμηρίωση (Javadoc για Pages, UML)
+│   └── apidocs/
+└── .gitignore
+
+
+Το έργο ακολουθεί τη δομή Maven. Ο πηγαίος κώδικας βρίσκεται στο src/main/java, τα αρχεία δεδομένων στο src/main/resources/data, ενώ η τεκμηρίωση Javadoc και τα διαγράμματα UML φιλοξενούνται στον φάκελο docs. 
+
+Πακέτο: gr.aueb.javaeight όπως φαίνεται και από τη δομή των καταλόγων.
+
+
 ```
 
 
@@ -138,6 +151,12 @@ repo-root/
 
 ### Σχεδιασμός Συστήματος (UML)
 
+Το διάγραμμα UML της εφαρμογής βρίσκεται στο αρχείο:
+
+- `docs/uml.png`
+
+👉 [Διάγραμμα UML](docs/uml.png)
+
 
 Το διάγραμμα περιγράφει:
 - τις βασικές κλάσεις της εφαρμογής
@@ -145,45 +164,7 @@ repo-root/
 - τις κύριες μεθόδους και τα δεδομένα που διαχειρίζονται
 
 
-👉 [Διάγραμμα UML](docs/uml.png)
 
-```mermaid
-graph TD
-    %% Models and Core Logic
-    subgraph Logic_Layer [Logic & Models]
-        BOWM[Budget_origin_window_model]
-        BDWM[Budget_distribution_window_model]
-        CONST[Constants.java]
-        PFAD[Pfad.java]
-    end
-
-    %% UI Components
-    subgraph UI_Layer [User Interface]
-        PUA[Panel_using_array]
-        LB[Listening_button]
-        LS[Listening_spinner]
-        LC[Listening_combobox]
-    end
-
-    %% Data Storage
-    subgraph Storage [Data & Resources]
-        GREECE[(Greece.csv)]
-        ORG[(organic_data.csv)]
-    end
-
-    %% Relationships
-    BOWM -->|Δημιουργεί ArrayList| PUA
-    BDWM -->|Δημιουργεί ArrayList| PUA
-    PUA -->|Τοποθετεί| LB
-    PUA -->|Τοποθετεί| LS
-    LB -.->|Έλεγχος μέσω Getter/Setter| PUA
-    LS -.->|Έλεγχος μέσω Getter/Setter| PUA
-    LC -->|Έλεγχος διαδικασιών| YEARS[Έτη / Year Processes]
-    PFAD -->|Ορίζει διαδρομές| GREECE
-    PFAD -->|Ορίζει διαδρομές| ORG
-    CONST -->|Παράμετροι| BOWM
-```
-    
 ## Επισκόπηση δομών δεδομένων
 
 ### Α. ΔΙΕΠΑΦΗ
