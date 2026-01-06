@@ -4,15 +4,28 @@ import java.nio.file.Path;
 
 import javax.swing.JOptionPane;
 
-
+/**
+ * Starts the application using main method.
+ * Creates data folder.
+ * Builds data files if ran from IDE.
+ * Extracts data files if ran from .jar file.
+ */
 public class Pfad {
+    /**
+     * Start the application.
+     * Create proper file structures.
+     * Create the first window.
+     * @param args
+     * @throws IOException
+     * @throws URISyntaxException
+     */
     public static void main(String[] args) throws IOException, URISyntaxException {
 
         // create data folder and copy csv files from jar to data folder
-        Copy_from_jar_to_data_folder.createDataFolderAndCopyCSVs(Constants.DATA_DIRECTORY_NAME);
+        JarDataFolderCopier.createDataFolderAndCopyCSVs(Constants.DATA_DIRECTORY_NAME);
 
         // get created folder name (same name if already existed, either JAR or VSC)
-        Path workingOrCreatedDirectory = Copy_from_jar_to_data_folder.pathOfcreatedOrExistingFolder;
+        Path workingOrCreatedDirectory = JarDataFolderCopier.pathOfcreatedOrExistingFolder;
         // convert into string for use with our methods
         String dataFolderAsString = workingOrCreatedDirectory.toString();
 
@@ -22,14 +35,14 @@ public class Pfad {
         String dataFilePathAsString = dataFilePathinWD.toString();
 
         // if data file does not exist (already from JAR), create and initialize it (VSC)
-        if (Build_data_file.create_data_file(dataFilePathAsString).equalsIgnoreCase("created") ) {
-            Build_data_file.initialize_data_file(dataFilePathAsString);
+        if (DataFileBuilder.dataFileCreator(dataFilePathAsString).equalsIgnoreCase("created") ) {
+            DataFileBuilder.initialize_data_file(dataFilePathAsString);
             JOptionPane.showMessageDialog(null, "Data file " + dataFilePathAsString + " created and initialized successfully.");
         // else if data file exists, inform user
-        } else if (Build_data_file.create_data_file(dataFilePathAsString).equalsIgnoreCase("exists") ) {
+        } else if (DataFileBuilder.dataFileCreator(dataFilePathAsString).equalsIgnoreCase("exists") ) {
             JOptionPane.showMessageDialog(null, "Data file " + dataFilePathAsString + " already exists at specified path.");
         // else if error occurred during creation, inform user and exit
-        } else if (Build_data_file.create_data_file(dataFilePathAsString).equalsIgnoreCase("error") ) {
+        } else if (DataFileBuilder.dataFileCreator(dataFilePathAsString).equalsIgnoreCase("error") ) {
             JOptionPane.showMessageDialog
                 (null,
                 "Could not create data file. Please check file path and permissions.",
@@ -40,7 +53,7 @@ public class Pfad {
         }
 
         // create budget origin window, dimensions same as screen, defined in Constants class
-        Budget_origin_window_model budgetOriginWindow = new Budget_origin_window_model(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, dataFilePathAsString, dataFolderAsString);
+        BudgetOriginWindowModel budgetOriginWindow = new BudgetOriginWindowModel(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, dataFilePathAsString, dataFolderAsString);
         budgetOriginWindow.setTitle("Προέλευση Κρατικού Προϋπολογισμού (Ctrl L/R --> reset) - Επιτρεπόμενες τιμές: " + Integer.MIN_VALUE + " έως " + Integer.MAX_VALUE);
     }
 }
