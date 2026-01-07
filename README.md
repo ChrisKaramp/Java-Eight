@@ -106,7 +106,6 @@ git checkout tags/v1.3
 Από τον ριζικό φάκελο του project:
 
 ```powershell
-mvn clean
 mvn package
 java -jar target\pfad_j8-1.3.jar
 ή διπλό κλικ στο .jar αρχείο
