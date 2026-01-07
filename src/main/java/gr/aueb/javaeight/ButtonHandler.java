@@ -42,7 +42,7 @@ public class ButtonHandler implements ActionListener {
                 case "add year" -> YearAdder.addYearIntoDataFile
                         (getDataFilePath(), TopPanelBOModel.yearaddJTF.getText(),
                          getSomePanel());
-                case "mass update" -> MassUpdater.WriteSortedDataIntoFile
+                case "mass update" -> MassUpdater.writeSortedDataIntoFile
                         (getDataFilePath(), getPanelsToBeRun(), getPanelContainingYear());
                 case "launch budget distribution" -> { 
                     BudgetDistributionWindowModel budgetDistributionWindow

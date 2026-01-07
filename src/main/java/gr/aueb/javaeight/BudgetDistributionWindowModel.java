@@ -2,10 +2,13 @@ package gr.aueb.javaeight;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
@@ -57,6 +60,33 @@ public class BudgetDistributionWindowModel extends JFrame {
         this.getContentPane().setBackground(Color.blue);
         this.setVisible(true);
         this.setResizable(false);
+
+        // ask user to save data on close, or not, or cancel
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                int userChoice =
+                    JOptionPane.showConfirmDialog(
+                    rootPane,
+                    "Θέλετε να αποθηκεύσετε πριν το κλείσιμο;",
+                    "Αποθήκευση",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+                );
+                if (userChoice == JOptionPane.YES_OPTION) {
+                    try {
+                        MassUpdater.writeSortedDataIntoFile(dataFilePath, panelsToBeControlled, ((TopPanelBOModel) somePanel));
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                        System.exit(1);
+                    }
+                    BudgetDistributionWindowModel.this.dispose();
+                } else if (userChoice == JOptionPane.NO_OPTION) {
+                    BudgetDistributionWindowModel.this.dispose();
+                } // if CANCEL or close dialog, do nothing
+            }
+        });
 
         //// configure the FIVE panels (and the middle one, used to nest the three middle panels)
         // top panel

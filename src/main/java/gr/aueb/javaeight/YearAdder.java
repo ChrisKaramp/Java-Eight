@@ -41,7 +41,7 @@ public class YearAdder {
             FileRecordAdder.writeRecord(dataFilePath, newYearRecordWithDelimiter, appendFlag);
 
             // Sort all data file by doing a mass update
-            DataSortAndSaveService.WriteSortedDataIntoFile(dataFilePath);
+            DataSortAndSaveService.writeSortedDataIntoFile(dataFilePath);
 
             //// add new year into year selection drop down menu SORTED
             // empty year selection drop down menu

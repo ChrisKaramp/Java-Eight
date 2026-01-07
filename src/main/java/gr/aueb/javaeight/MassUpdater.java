@@ -27,7 +27,7 @@ public class MassUpdater {
      * @param panelWithYearSelectLCB a reference to year selection panel
      * @throws IOException I/O error exception
      */
-    public static void WriteSortedDataIntoFile(String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeRun, TopPanelBOModel panelWithYearSelectLCB) throws IOException {
+    public static void writeSortedDataIntoFile(String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeRun, TopPanelBOModel panelWithYearSelectLCB) throws IOException {
         // get selected year from year selection combobox in top panel
         String yearSelected = (String) panelWithYearSelectLCB.getYearSelectLCB().getSelectedItem();
 

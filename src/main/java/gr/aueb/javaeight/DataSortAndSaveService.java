@@ -16,7 +16,7 @@ public class DataSortAndSaveService {
      * @param dataFilePath absolute path to data file
      * @throws IOException I/O error exception
      */
-    public static void WriteSortedDataIntoFile(String dataFilePath) throws IOException {
+    public static void writeSortedDataIntoFile(String dataFilePath) throws IOException {
 
         // write over, NOT append
         boolean appendFlag = false;

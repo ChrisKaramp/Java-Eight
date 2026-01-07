@@ -4,11 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.border.Border;
 
@@ -58,9 +61,36 @@ public class BudgetOriginWindowModel extends JFrame {
         // configure this four panels window (frame)
         this.setSize(window_width, window_height);
         this.getContentPane().setBackground(Color.blue);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
+
+        // ask user to save data on close, or not, or cancel
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                int userChoice =
+                    JOptionPane.showConfirmDialog(
+                    rootPane,
+                    "Θέλετε να αποθηκεύσετε πριν το κλείσιμο;",
+                    "Αποθήκευση",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+                );
+                if (userChoice == JOptionPane.YES_OPTION) {
+                    try {
+                        MassUpdater.writeSortedDataIntoFile(dataFilePath, panelsToBeControlled, topPanelArea);
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                        System.exit(1);
+                    }
+                    System.exit(0);
+                } else if (userChoice == JOptionPane.NO_OPTION) {
+                    System.exit(0);
+                } // if CANCEL or close dialog, do nothing
+            }
+        });
+
 
         //// configure the four panels
         // top panel
