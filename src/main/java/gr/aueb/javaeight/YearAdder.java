@@ -49,6 +49,7 @@ public class YearAdder {
             // refill year selection drop down menu
             for ( String year : YearProvider.GetYearsIntoStringsArray(dataFilePath)) {
                 ((TopPanelBOModel) somePanel).getYearSelectLCB().addItem(year);
+                System.out.println("YEAR ADDER: " + year);
             }
             // notify user
             JOptionPane.showMessageDialog

@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 /**
  * Creates a panel used to be the top panel of Budget Origin frame/window.
@@ -23,7 +26,7 @@ public class TopPanelBOModel extends JPanel {
     private final YearSelectionCombobox yearSelectLCB;
     // year add components
     private final InteractiveButton yearAddLB;
-    static JTextField yearaddJTF = new JTextField("2000");
+    private JTextField yearaddJTF = new JTextField("2000");
     // budget distribution launch components
     private final InteractiveButton budgetDistributionLaunchLB;
 
@@ -68,6 +71,21 @@ public class TopPanelBOModel extends JPanel {
         this);
         // initialize country selection combobox to have access at year selection combobox
         this.countrySelectLCB = new ComparisonCombobox(this.yearSelectLCB, dataFilePath, dataFolder);
+ 
+        yearaddJTF.setDocument(new PlainDocument() {
+            @Override
+            public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
+                if (str == null) return;
+
+                String newText = new StringBuilder(getText(0, getLength()))
+                        .insert(offs, str)
+                        .toString();
+
+                if (newText.matches("-?\\d*")) {
+                    super.insertString(offs, str, a);
+                }
+            }
+        });
         
         //// place components on panel
         this.add(comparisonJL);
@@ -82,6 +100,7 @@ public class TopPanelBOModel extends JPanel {
         this.add(yearSelectLCB);
         for (String year: YearProvider.GetYearsIntoStringsArray(dataFilePath)) {
             yearSelectLCB.addItem(year);
+            System.err.println("TOP PANEL:" + year);
         }
         this.add(yearAddLB);
         this.add(yearaddJTF);
@@ -94,5 +113,9 @@ public class TopPanelBOModel extends JPanel {
 
     public ComparisonCombobox getCountrySelectLCB() {
         return countrySelectLCB;
+    }
+
+    public String getYearAddJTF(){
+        return yearaddJTF.getText();
     }
 }

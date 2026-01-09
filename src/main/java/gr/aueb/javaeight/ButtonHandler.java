@@ -40,7 +40,7 @@ public class ButtonHandler implements ActionListener {
         try {
             switch (getButtonType()) {
                 case "add year" -> YearAdder.addYearIntoDataFile
-                        (getDataFilePath(), TopPanelBOModel.yearaddJTF.getText(),
+                        (getDataFilePath(), getPanelContainingYear().getYearAddJTF(),
                          getSomePanel());
                 case "mass update" -> MassUpdater.writeSortedDataIntoFile
                         (getDataFilePath(), getPanelsToBeRun(), getPanelContainingYear());

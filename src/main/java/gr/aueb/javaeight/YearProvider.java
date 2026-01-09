@@ -23,17 +23,11 @@ public class YearProvider {
         List<List<String>> dataFileRecords = fileDataGetter.getDataFileRecords();
 
         // for each record fetched
-        for (List<String> dataFileRecord : dataFileRecords) {
-            // for each string in record
-            for (String recordYear : dataFileRecord) {
-                // if it is not headers record
-                if (dataFileRecords.indexOf(dataFileRecord) > 0) {
-                    // if it is the first value, it's a year value
-                    if (dataFileRecord.indexOf(recordYear) == 0) {
-                        yearsList.add(recordYear);
-                    }
-                }
-            }
+        for (int i = 1; i < dataFileRecords.size(); i++) {
+            List<String> dataFileRecord = dataFileRecords.get(i);
+            // first value of record is year
+            String year = dataFileRecord.get(0);
+            yearsList.add(year);
         }
         // convert ArrayList to String[]
         return yearsList.toArray(String[]::new);
