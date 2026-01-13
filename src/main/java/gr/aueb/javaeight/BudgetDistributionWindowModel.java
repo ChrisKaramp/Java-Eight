@@ -119,12 +119,12 @@ public class BudgetDistributionWindowModel extends JFrame {
         //// fill budget distibution window with selected year values
         // nested panel 1
         SpinnerValuesInitializer.GetSelectedYearValues
-            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectLCB().getSelectedItem().toString(), nestedPanel1Area, Constants.BD_NESTED_PANEL1_START, Constants.BD_NESTED_PANEL2_START);
+            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectYSC().getSelectedItem().toString(), nestedPanel1Area, Constants.BD_NESTED_PANEL1_START, Constants.BD_NESTED_PANEL2_START);
         // nested panel 2
         SpinnerValuesInitializer.GetSelectedYearValues
-            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectLCB().getSelectedItem().toString(), nestedPanel2Area, Constants.BD_NESTED_PANEL2_START+3, Constants.BD_NESTED_PANEL3_START);
+            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectYSC().getSelectedItem().toString(), nestedPanel2Area, Constants.BD_NESTED_PANEL2_START+3, Constants.BD_NESTED_PANEL3_START);
         // nested panel 3
         SpinnerValuesInitializer.GetSelectedYearValues
-            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectLCB().getSelectedItem().toString(), nestedPanel3Area, Constants.BD_NESTED_PANEL3_START+3, Constants.BD_BOTTOM_PANEL_START);
+            (dataFilePath, ((TopPanelBOModel) somePanel).getYearSelectYSC().getSelectedItem().toString(), nestedPanel3Area, Constants.BD_NESTED_PANEL3_START+3, Constants.BD_BOTTOM_PANEL_START);
     }
 }

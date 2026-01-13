@@ -45,10 +45,10 @@ public class YearAdder {
 
             //// add new year into year selection drop down menu SORTED
             // empty year selection drop down menu
-            ((TopPanelBOModel) somePanel).getYearSelectLCB().removeAllItems();
+            ((TopPanelBOModel) somePanel).getYearSelectYSC().removeAllItems();
             // refill year selection drop down menu
             for ( String year : YearProvider.GetYearsIntoStringsArray(dataFilePath)) {
-                ((TopPanelBOModel) somePanel).getYearSelectLCB().addItem(year);
+                ((TopPanelBOModel) somePanel).getYearSelectYSC().addItem(year);
                 System.out.println("YEAR ADDER: " + year);
             }
             // notify user

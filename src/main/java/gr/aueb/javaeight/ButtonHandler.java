@@ -3,6 +3,7 @@ package gr.aueb.javaeight;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -39,25 +40,58 @@ public class ButtonHandler implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         try {
             switch (getButtonType()) {
-                case "add year" -> YearAdder.addYearIntoDataFile
-                        (getDataFilePath(), getPanelContainingYear().getYearAddJTF(),
-                         getSomePanel());
-                case "mass update" -> MassUpdater.writeSortedDataIntoFile
-                        (getDataFilePath(), getPanelsToBeRun(), getPanelContainingYear());
+                case "add year" ->
+                        YearAdder.addYearIntoDataFile(
+                            getDataFilePath(),
+                            getPanelContainingYear()
+                                .getYearAddJTF(),
+                            getSomePanel()
+                        );
+                case "mass update" ->
+                        MassUpdater.writeSortedDataIntoFile(
+                            getDataFilePath(),
+                            getPanelsToBeRun(),
+                            getPanelContainingYear()
+                        );
                 case "launch budget distribution" -> { 
-                    BudgetDistributionWindowModel budgetDistributionWindow
-                        = new BudgetDistributionWindowModel
-                        (Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT, getDataFilePath(), getSomePanel());
-                    budgetDistributionWindow.setTitle
-                        ("Κατανομή Κρατικού Προϋπολογισμού (Ctrl 1/2/3 --> reset) - Επιτρεπόμενες τιμές: " + Integer.MIN_VALUE + " έως " + Integer.MAX_VALUE);
+                    BudgetDistributionWindowModel budgetDistributionWindow = 
+                        new BudgetDistributionWindowModel(
+                            Constants.FRAME_WIDTH,
+                            Constants.FRAME_HEIGHT,
+                            getDataFilePath(),
+                            getSomePanel()
+                        );
+                    budgetDistributionWindow.setTitle(
+                        "Κατανομή Κρατικού Προϋπολογισμού " +
+                        "(Ctrl 1/2/3 --> reset) - " +
+                        "Επιτρεπόμενες τιμές: " +
+                        Integer.MIN_VALUE + " έως " + Integer.MAX_VALUE
+                    );
+                }
+                case "pdf" -> PDFCreator.createPDF(dataFilePath);
+                case "graph" -> {
+                    GraphCreator.createPieChart(
+                            dataFilePath,
+                            getPanelContainingYear()
+                                    .getYearSelectYSC()
+                                    .getSelectedItem()
+                                    .toString());
+                    GraphCreator.createBarChart(
+                            dataFilePath,
+                            getPanelContainingYear()
+                                    .getYearSelectYSC()
+                                    .getSelectedItem()
+                                    .toString());
                 }
                 default -> JOptionPane.showMessageDialog
                         (null, getButtonType());
             }
             } catch (IOException ex) {
-                System.out.println("An error occurred while adding year in data file. Exit code: 1.");
+                System.out.println("I/O ERROR. Button type: " + getButtonType() + ". Exit code: 1.");
                 System.exit(1);
-            }
+            } catch (URISyntaxException ex) {
+            System.getLogger(ButtonHandler.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
     }   
 
     private String getButtonType() {

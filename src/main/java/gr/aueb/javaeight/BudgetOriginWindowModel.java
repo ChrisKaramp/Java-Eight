@@ -121,14 +121,14 @@ public class BudgetOriginWindowModel extends JFrame {
         // fill left panel
         SpinnerValuesInitializer.GetSelectedYearValues
             (dataFilePath,
-            topPanelArea.getYearSelectLCB().getSelectedItem().toString(),
+            topPanelArea.getYearSelectYSC().getSelectedItem().toString(),
             leftPanelArea,
             Constants.BO_LEFT_PANEL_START+1,
             Constants.BO_RIGHT_PANEL_START);
         // fill right panel
         SpinnerValuesInitializer.GetSelectedYearValues
             (dataFilePath,
-                topPanelArea.getYearSelectLCB().getSelectedItem().toString(),
+                topPanelArea.getYearSelectYSC().getSelectedItem().toString(),
                 rightPanelArea,
                 Constants.BO_RIGHT_PANEL_START+1,
                 Constants.BO_BOTTOM_PANEL_START);

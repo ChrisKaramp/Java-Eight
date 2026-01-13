@@ -29,12 +29,12 @@ public class MassUpdater {
      */
     public static void writeSortedDataIntoFile(String dataFilePath, ArrayList<ArrayBasedPanel> panelsToBeRun, TopPanelBOModel panelWithYearSelectLCB) throws IOException {
         // get selected year from year selection combobox in top panel
-        String yearSelected = (String) panelWithYearSelectLCB.getYearSelectLCB().getSelectedItem();
+        String yearSelected = (String) panelWithYearSelectLCB.getYearSelectYSC().getSelectedItem();
 
         // write over, NOT append
         boolean appendFlag = false;
         
-        // fetch all data from file (sorted)
+        // fetch all data from file into a list (sorted)
         FileDataProvider fileDataGetter = new FileDataProvider(dataFilePath);
         List<List<String>> dataFileRecords = fileDataGetter.getDataFileRecords();
 
